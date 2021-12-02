@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app-deployment
+  name: db-deployment
   namespace: skobrin
   labels:
-    app: app
+    app: db
 spec:
   replicas: 1
   strategy:
@@ -12,17 +12,17 @@ spec:
   minReadySeconds: 20
   selector:
     matchLabels:
-      app: app
+      app: db
   template:
     metadata:
       labels:
-        app: app
+        app: db
     spec:
       containers:
-      - name: app-deployment
-        image: harbor.dev.afsmtddso.com/skobrin-harbor-project/app@sha256:505249ea95340e4af632acf67a77cf0dd27dd3f85cd716f8dbaabab1690fe32
+      - name: db-deployment
+        image: harbor.dev.afsmtddso.com/skobrin-harbor-project/db@sha256:8a642f568cda41f1c72cbeb7445b0f84713d46555bda7d3ebf2db480a55ab146
         ports:
-        - containerPort: 5000
+        - containerPort: 5432
         envFrom:
         - secretRef:
             name: db-secret  
