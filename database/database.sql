@@ -319,6 +319,7 @@ ALTER SEQUENCE order_quantities_order_qty_id_seq OWNED BY order_quantities.order
 -- Name: orders; Type: TABLE; Schema: public; Owner: postgres
 --
 
+
 CREATE TABLE orders (
     order_id integer NOT NULL,
     customer_id integer NOT NULL,
